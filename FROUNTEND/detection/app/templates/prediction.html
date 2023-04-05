@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>cancer</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- responsive-->
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <!-- awesome fontfamily -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="/static/images/loading.gif" alt="" /></div>
+    </div>
+    <!-- end loader -->
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="/userhome">HOME</a>
+        <a href="/load">Load</a>
+        <a href="/view">View</a>
+        <a href="/preprocessing">Preprocessing</a>    
+        <a href="/model">Model</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/">Logout</a>
+    </div>
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="head-top">
+            <div class="container-fluid">
+                <div class="row d_flex">
+                    <div class="col-sm-3">
+                        <div class="logo">
+                            <a href="index.html">Cancer Detection</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <ul class="social_icon text_align_right d_none">
+                            <li> <a href="Javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
+                            <li> <a href="Javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                            <li> <a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li> <a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li> <a href="Javascript:void(0)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <ul class="email text_align_right">
+                            <li class="d_none"><a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                            <li class="d_none"> <a href="Javascript:void(0)"><i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"></i></a> </li>
+                            <li>
+                                <button class="openbtn" onclick="openNav()"><img src="/static/images/menu_btn.png"></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+    <!-- about -->
+    <div id="about" class="about" style="height: 100vh;">
+        <div class="container">
+           
+                <div class="col-md-12">
+                    <div class="about_border">
+                      
+                            <div class="col-md-12">
+                                <div class="titlepage text_align_center">
+                                   <h2>Prediction</h2>
+                                </div>
+                                <br><br><br><br>
+                            </div>
+                            <div class="col-md-12">
+                                <form action="{% url 'prediction' %}" method="post">
+                                    {% csrf_token %}
+                                    <center><h2 style="margin-left: 20px;">{{msg|safe}}</h2></center><br><br>
+                                    <center><input type="text" name="Age" placeholder="Enter The Age"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Gender" placeholder="Enter The Gender"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Air Pollution" placeholder="Enter The Air Pollution"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Alcohol use" placeholder="Enter The Alcohol use"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Dust Allergy" placeholder="Enter The Dust Allergy"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                                        <input type="text" name="OccuPational Hazards" placeholder="Enter The OccuPational Hazards"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Genetic Risk" placeholder="Enter The Genetic Risk"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="chronic Lung Disease" placeholder="Enter The chronic Lung Disease"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Balanced Diet" placeholder="Enter The Balanced Diet"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Obesity" placeholder="Enter The Obesity"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                                        <input type="text" name="Smoking" placeholder="Enter The Smoking"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Passive Smoker" placeholder="Enter The Passive Smoker"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Chest Pain" placeholder="Enter The Chest Pain"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Coughing of Blood" placeholder="Enter The Coughing of Blood"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Fatigue" placeholder="Enter The Fatigue"style="height: 20.99306px;width: 100.99306px;color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                                        <input type="text" name="Weight Loss" placeholder="Enter The Weight Loss"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Shortness of Breath" placeholder="Enter The Shortness of Breath"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Wheezing" placeholder="Enter The Wheezing"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Swallowing Difficulty" placeholder="Enter The Swallowing Difficulty"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Clubbing of Finger Nails" placeholder="Enter The Clubbing of Finger Nails"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);"><br>
+                                        <input type="text" name="Frequent Cold" placeholder="Enter  Frequent Cold"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Dry Cough" placeholder="Enter Dry Cough"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                        <input type="text" name="Snoring" placeholder="Enter The Snoring"style="height: 20.99306px;width: 100.99306px; color:rgb(11, 203, 236); border-color:rgb(11, 203, 236);">
+                                    <center><input type="submit" style="margin-left: 50px;"><br></center></form>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+   
+      <!-- Javascript files-->
+      <script src="/static/js/jquery.min.js "></script>
+      <script src="/static/js/bootstrap.bundle.min.js "></script>
+      <script src="/static/js/jquery-3.0.0.min.js "></script>
+      <script src="/static/js/custom.js "></script>
+   </body>
+</html>
